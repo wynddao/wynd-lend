@@ -1,0 +1,40 @@
+[package]
+name = "wyndex-oracle"
+version = "0.1.0"
+authors = ["Jakub <jakub@moonbite.space>"]
+edition = "2021"
+description = "The Wynddex Price Oracle"
+repository = "https://github.com/wynddao/wynd-lend"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+backtraces = ["cosmwasm-std/backtraces"]
+library = []
+
+[dependencies]
+cosmwasm-schema = "1.1"
+cosmwasm-std = "1.1"
+cosmwasm-storage = "1.1"
+cw-storage-plus = "1.0"
+cw2 = "1.0"
+cw20 = "1.0"
+cw20-base = "1.0"
+serde = { version = "1", default-features = false, features = ["derive"] }
+thiserror = "1"
+wyndex = { version = "2.1", git = "https://github.com/wynddao/wynddex.git" }
+wyndex-factory = { version = "2.1", git = "https://github.com/cosmorama/wynddex.git", features = [ "library" ]}
+wyndex-multi-hop = { version = "2.1", git = "https://github.com/cosmorama/wynddex.git", features = [ "library" ]}
+wyndex-pair = { version = "2.1", git = "https://github.com/cosmorama/wynddex.git", features = [ "library" ]}
+wyndex-pair-lsd = { version = "2.1", git = "https://github.com/cosmorama/wynddex.git", features = [
+    "library",
+] }
+wyndex-stake = { version = "2.1", git = "https://github.com/cosmorama/wynddex.git", features = [ "library" ]}
+utils = { workspace = true }
+
+[dev-dependencies]
+anyhow = "1"
+cw-multi-test = "0.16"
+derivative = "2"
+wyndex-tests = { workspace = true }

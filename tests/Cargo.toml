@@ -1,0 +1,18 @@
+[package]
+name = "tests"
+version = { workspace = true }
+edition = { workspace = true }
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cosmwasm-std = { workspace = true }
+isotonic-credit-agency = { workspace = true }
+isotonic-market = { workspace = true }
+wyndex-oracle = { workspace = true }
+isotonic-token = { workspace = true }
+utils = { workspace = true }
+anyhow = { workspace = true }
+cw-multi-test = { workspace = true }
+derivative = "2.2"

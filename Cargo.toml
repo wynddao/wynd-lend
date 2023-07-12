@@ -1,0 +1,48 @@
+[workspace]
+members = ["packages/*", "contracts/*"]
+# removed "tests" from workspace since it requires udate to new pool.
+resolver = "2"
+
+[workspace.package]
+version = "0.7.0"
+edition = "2021"
+repository = "https://github.com/cosmorama/wynd-lend"
+
+[workspace.dependencies]
+anyhow = "1"
+cosmwasm-schema = "1.1"
+cosmwasm-std = "1.2"
+cosmwasm-storage = "1.1"
+cw2 = "0.16"
+cw20 = "0.16"
+cw20-base = "0.16.0"
+cw-multi-test = "0.16"
+cw-storage-plus = { git = "https://github.com/CosmWasm/cw-storage-plus.git", rev = "738d10c" }
+cw-utils = "0.16"
+isotonic-credit-agency = { version = "0.7.0", path = "./contracts/isotonic-credit-agency", features = [
+    "library",
+] }
+isotonic-market = { version = "0.7.0", path = "./contracts/isotonic-market", features = [
+    "library",
+] }
+wyndex-oracle = { path = "./contracts/wyndex-oracle", features = [
+    "library",
+] }
+isotonic-token = { version = "0.7.0", path = "./contracts/isotonic-token", features = [
+    "library",
+] }
+wyndex = { version = "2.1", git = "https://github.com/wynddao/wynddex.git" }
+wyndex-multi-hop = { version = "2.0", git = "https://github.com/wynddao/wynddex.git" }
+wyndex-pair-lsd = { version = "2.0", git = "https://github.com/wynddao/wynddex.git" }
+wyndex-pair = { version = "2.0", git = "https://github.com/wynddao/wynddex.git" }
+wyndex-stake = { version = "2.0", git = "https://github.com/wynddao/wynddex.git" }
+schemars = "0.8"
+serde = { version = "1", default-features = false, features = ["derive"] }
+thiserror = "1"
+utils = { version = "0.7.0", path = "./packages/utils" }
+wyndex-tests = {version = "0.7.0", path = "./packages/wyndex-tests"}
+wyndex-factory = { version = "2.0", git = "https://github.com/wynddao/wynddex.git" }
+
+[profile.release.package.isotonic-token]
+codegen-units = 1
+incremental = false
